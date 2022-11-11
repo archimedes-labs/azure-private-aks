@@ -4,10 +4,12 @@
 *.iml
 
 # dependencies
+
+**node_modules
 /node_modules
 /.pnp
 .pnp.js
-.idea
+.idea**
 
 package-lock.json
 

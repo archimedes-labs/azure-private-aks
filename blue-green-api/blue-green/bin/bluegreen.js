@@ -2,13 +2,13 @@ const azureIdentity = require("@azure/identity");
 const appConfig = require("@azure/app-configuration");
 const credential = new azureIdentity.DefaultAzureCredential();
 const client = new appConfig.AppConfigurationClient(
-    "https://demo-app-conf.azconfig.io",
+    process.env.APP_CONFIG_URL,
     credential
 );
 
 async function getConfiguration() {
     let retrievedSetting = await client.getConfigurationSetting({
-        key: "feature-flag"
+        key: process.env.KEY_NAME
     });
     console.log("Retrieved value:", retrievedSetting.value);
 
